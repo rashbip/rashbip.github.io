@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rashidul Hasan - Professional Video Editor</title>
+    <title>Rashidul Hasan - Android Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     
@@ -16,6 +16,8 @@
             --tertiary-black: #2a2a2a;
             --accent-gold: #d4af37;
             --accent-amber: #ffa500;
+            --accent-green: #4caf50;
+            --accent-blue: #2196f3;
             --text-white: #ffffff;
             --text-gray: #cccccc;
             --text-dark-gray: #888888;
@@ -472,7 +474,7 @@
             font-weight: 700;
         }
 
-        .video-monitor {
+        .phone-monitor {
             position: relative;
             width: 100%;
         }
@@ -489,78 +491,77 @@
 
         .monitor-screen {
             position: relative;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 9 / 16;
             background: var(--primary-black);
-            border-radius: 4px;
+            border-radius: 25px;
             overflow: hidden;
             width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            border: 8px solid #333;
         }
 
-        .hero-video {
+        .phone-mockup {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        .play-indicator {
-            align-self: center;
-            margin: auto;
-            width: 60px;
-            height: 60px;
-            background: rgba(212, 175, 55, 0.9);
-            border-radius: 50%;
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gold);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-black);
+            margin-bottom: 20px;
+            animation: appIconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes appIconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .app-name {
+            color: white;
+            font-family: var(--font-primary);
             font-size: 24px;
-            animation: pulse 2s ease-in-out infinite;
-            cursor: pointer;
-            transition: var(--transition-medium);
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        .play-indicator:hover {
-            transform: scale(1.1);
-            background: var(--accent-gold);
+        .app-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 1px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
-
-        .video-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .kotlin-code {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
             background: rgba(0, 0, 0, 0.8);
-            padding: 10px 15px;
-            border-radius: 4px;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--accent-green);
+            opacity: 0;
+            animation: codeReveal 4s ease-in-out infinite;
         }
 
-        .video-title {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--accent-gold);
-        }
-
-        .video-duration {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-gray);
+        @keyframes codeReveal {
+            0%, 70%, 100% { opacity: 0; }
+            10%, 60% { opacity: 1; }
         }
 
         .monitor-controls {
@@ -853,13 +854,6 @@
             width: 100%;
         }
 
-        .project-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-slow);
-        }
-
         .project-thumbnail-image {
             width: 100%;
             height: 100%;
@@ -886,7 +880,6 @@
             opacity: 1;
         }
 
-        .project-card:hover .project-video,
         .project-card:hover .project-thumbnail-image {
             transform: scale(1.05);
         }
@@ -939,29 +932,6 @@
             font-family: var(--font-mono);
             font-size: 12px;
             color: var(--accent-gold);
-        }
-
-        .editing-timeline {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        .timeline-progress {
-            height: 100%;
-            background: var(--accent-gold);
-            border-radius: 2px;
-            width: 0%;
-            animation: timelineProgress 3s ease-in-out infinite;
-        }
-
-        @keyframes timelineProgress {
-            0% { width: 0%; }
-            50% { width: 75%; }
-            100% { width: 100%; }
         }
 
         .project-details {
@@ -1067,279 +1037,125 @@
             margin-top: 15px;
         }
 
-        /* DaVinci Resolve Style Animations */
-        .davinci-timeline {
+        /* Android Development Animations */
+        .android-robot {
             position: absolute;
             bottom: -15px;
             right: -15px;
-            width: 80px;
-            height: 30px;
-            background: #1e1e1e;
-            border-radius: 4px;
-            padding: 4px;
-            overflow: hidden;
+            width: 60px;
+            height: 40px;
+            background: var(--accent-green);
+            border-radius: 20px 20px 0 0;
+            animation: androidBounce 2s ease-in-out infinite;
         }
 
-        .timeline-track {
-            width: 100%;
-            height: 8px;
-            background: #333;
-            border-radius: 2px;
-            margin-bottom: 2px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .timeline-track.video-track::after {
+        .android-robot::before {
             content: "";
             position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 60%;
-            background: linear-gradient(90deg, #4caf50, #2196f3, #ff9800);
-            border-radius: 2px;
-            animation: timelineClips 3s ease-in-out infinite;
+            top: -10px;
+            left: 15px;
+            width: 30px;
+            height: 20px;
+            background: var(--accent-green);
+            border-radius: 15px 15px 0 0;
         }
 
-        .timeline-track.audio-track::after {
+        .android-robot::after {
             content: "";
             position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 75%;
-            background: linear-gradient(90deg, #9c27b0, #e91e63);
-            border-radius: 2px;
-            animation: timelineClips 3s ease-in-out infinite 0.5s;
-        }
-
-        .timeline-playhead {
-            position: absolute;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: #ffc107;
-            animation: playheadMove 4s linear infinite;
-        }
-
-        @keyframes timelineClips {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes playheadMove {
-            0% { left: 0%; }
-            100% { left: 100%; }
-        }
-
-        .davinci-color-wheels {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            display: flex;
-            gap: 5px;
-        }
-
-        .color-wheel {
-            width: 25px;
-            height: 25px;
+            top: -5px;
+            left: 20px;
+            width: 4px;
+            height: 4px;
+            background: white;
             border-radius: 50%;
-            border: 2px solid #333;
-            position: relative;
-            background: radial-gradient(circle, #444 30%, transparent 70%);
+            box-shadow: 16px 0 0 white;
         }
 
-        .color-wheel.primary {
-            background: radial-gradient(circle, #ff6b6b 30%, transparent 70%);
+        @keyframes androidBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        .color-wheel.secondary {
-            background: radial-gradient(circle, #4ecdc4 30%, transparent 70%);
-        }
-
-        .wheel-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            background: #fff;
-            border-radius: 50%;
-        }
-
-        .wheel-indicator {
-            position: absolute;
-            top: 2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 3px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            animation: wheelSpin 2s linear infinite;
-        }
-
-        @keyframes wheelSpin {
-            0% { transform: translateX(-50%) rotate(0deg) translateY(-8px) rotate(0deg); }
-            100% { transform: translateX(-50%) rotate(360deg) translateY(-8px) rotate(-360deg); }
-        }
-
-        .story-arc {
+        .kotlin-logo {
             position: absolute;
             bottom: -10px;
             right: -10px;
-            width: 70px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #7f52ff, #ff6b35);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            animation: kotlinPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes kotlinPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .flutter-wings {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            width: 60px;
             height: 30px;
-            z-index: 2;
         }
 
-        .story-line {
+        .wing {
             position: absolute;
-            bottom: 12px;
-            left: 5px;
-            width: calc(100% - 10px);
-            height: 3px;
-            background: linear-gradient(90deg, #4caf50 0%, #ffc107 50%, #f44336 100%);
-            border-radius: 2px;
-            animation: storyLineGlow 4s ease-in-out infinite;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(45deg, #02569b, #0175c2);
+            border-radius: 50% 0;
+            animation: flutterWings 2s ease-in-out infinite;
         }
 
-        @keyframes storyLineGlow {
-            0%, 100% { 
-                box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
-                transform: scaleX(1);
-            }
-            33% { 
-                box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
-                transform: scaleX(1.05);
-            }
-            66% { 
-                box-shadow: 0 0 5px rgba(244, 67, 54, 0.3);
-                transform: scaleX(1);
-            }
+        .wing.left {
+            left: 0;
+            transform-origin: bottom right;
         }
 
-        .story-point {
+        .wing.right {
+            right: 0;
+            transform: scaleX(-1);
+            transform-origin: bottom left;
+            animation-delay: 0.1s;
+        }
+
+        @keyframes flutterWings {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+        }
+
+        .compose-blocks {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            bottom: 9px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .story-point.setup {
-            left: 8px;
-            background: #4caf50;
-            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-            animation: storyPulseEnhanced 4s ease-in-out infinite;
-        }
-
-        .story-point.conflict {
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffc107;
-            box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
-            animation: storyPulseEnhanced 4s ease-in-out infinite 1.3s;
-        }
-
-        .story-point.resolution {
-            right: 8px;
-            background: #f44336;
-            box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
-            animation: storyPulseEnhanced 4s ease-in-out infinite 2.6s;
-        }
-
-        @keyframes storyPulseEnhanced {
-            0%, 75%, 100% { 
-                transform: scale(1); 
-                opacity: 0.8;
-                box-shadow: 0 0 5px currentColor;
-            }
-            25% { 
-                transform: scale(1.4); 
-                opacity: 1;
-                box-shadow: 0 0 15px currentColor, 0 0 25px currentColor;
-            }
-        }
-
-        .story-point.conflict {
-            animation: storyPulseEnhanced 4s ease-in-out infinite 1.3s;
-        }
-
-        .story-point.conflict:hover,
-        .story-point.setup:hover,
-        .story-point.resolution:hover {
-            transform: scale(1.2);
-            opacity: 1;
-        }
-
-        .davinci-mixer {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
+            bottom: -10px;
+            right: -10px;
             display: flex;
             gap: 3px;
-            align-items: end;
         }
 
-        .mixer-channel {
-            width: 8px;
-            height: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+        .compose-block {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+            animation: composeBlocks 2s ease-in-out infinite;
         }
 
-        .channel-fader {
-            width: 6px;
-            height: 15px;
-            background: #333;
-            border-radius: 1px;
-            position: relative;
-        }
+        .compose-block:nth-child(1) { animation-delay: 0s; }
+        .compose-block:nth-child(2) { animation-delay: 0.2s; }
+        .compose-block:nth-child(3) { animation-delay: 0.4s; }
 
-        .channel-fader::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, #4caf50, #ffc107, #f44336);
-            border-radius: 1px;
-            animation: faderLevel 2s ease-in-out infinite;
-        }
-
-        .mixer-channel:nth-child(1) .channel-fader::after {
-            animation-delay: 0s;
-            height: 60%;
-        }
-
-        .mixer-channel:nth-child(2) .channel-fader::after {
-            animation-delay: 0.3s;
-            height: 80%;
-        }
-
-        .mixer-channel:nth-child(3) .channel-fader::after {
-            animation-delay: 0.6s;
-            height: 45%;
-        }
-
-        @keyframes faderLevel {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        .channel-meter {
-            width: 2px;
-            height: 8px;
-            background: #333;
-            border-radius: 1px;
-            margin-top: 2px;
+        @keyframes composeBlocks {
+            0%, 100% { transform: translateY(0px); opacity: 0.7; }
+            50% { transform: translateY(-8px); opacity: 1; }
         }
 
         /* Works With Section - Enhanced Animations */
@@ -2526,8 +2342,7 @@
             .nav,
             .film-strip-top,
             .film-strip-bottom,
-            .hero-video,
-            .project-video {
+            .phone-mockup {
                 display: none;
             }
 
@@ -2577,7 +2392,7 @@
     </style>
 </head>
 <body data-theme="dark">
-    <!-- Film Strip Header -->
+     Film Strip Header 
     <div class="film-strip-top">
         <div class="film-holes">
             <div class="hole"></div>
@@ -2591,13 +2406,13 @@
         </div>
     </div>
 
-    <!-- Navigation -->
+     Navigation 
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-brand">
                 <div class="logo-frame">
                     <span class="brand-text">RASHIDUL HASAN</span>
-                    <span class="brand-subtitle">VIDEO EDITOR</span>
+                    <span class="brand-subtitle">ANDROID DEVELOPER</span>
                 </div>
             </div>
             <div class="nav-timeline">
@@ -2619,7 +2434,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+     Hero Section 
     <section id="home" class="hero">
         <div class="hero-background">
             <div class="film-grain"></div>
@@ -2635,13 +2450,13 @@
                         <div class="corner bottom-right"></div>
                     </div>
                     <h1 class="hero-title">
-                        <span class="title-line">CRAFTING</span>
-                        <span class="title-line highlight">CINEMATIC</span>
-                        <span class="title-line">STORIES</span>
+                        <span class="title-line">BUILDING</span>
+                        <span class="title-line highlight">ANDROID</span>
+                        <span class="title-line">EXPERIENCES</span>
                     </h1>
                     <div class="hero-meta">
                         <div class="meta-item">
-                            <span class="meta-label">EDITOR</span>
+                            <span class="meta-label">DEVELOPER</span>
                             <span class="meta-value">RASHIDUL HASAN</span>
                         </div>
                         <div class="meta-item">
@@ -2650,26 +2465,27 @@
                         </div>
                         <div class="meta-item">
                             <span class="meta-label">SPECIALTY</span>
-                            <span class="meta-value">CINEMATIC EDITING</span>
+                            <span class="meta-value">KOTLIN & FLUTTER</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="hero-right">
-                <div class="video-monitor">
+                <div class="phone-monitor">
                     <div class="monitor-frame">
                         <div class="monitor-screen">
-                            <video autoplay muted loop playsinline class="hero-video" id="heroVideo">
-                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                            </video>
-                            <div class="video-overlay">
-                                <div class="play-indicator" id="heroPlayBtn">
-                                    <span class="material-symbols-outlined">play_arrow</span>
+                            <div class="phone-mockup">
+                                <div class="kotlin-code">
+fun onCreate() {
+    setContent {
+        MyApp()
+    }
+}</div>
+                                <div class="app-icon">
+                                    <span class="material-symbols-outlined">smartphone</span>
                                 </div>
-                                <div class="video-info">
-                                    <span class="video-title">SHOWREEL_2025.mp4</span>
-                                    <span class="video-duration">02:34</span>
-                                </div>
+                                <div class="app-name">MyApp</div>
+                                <div class="app-subtitle">KOTLIN • COMPOSE</div>
                             </div>
                         </div>
                         <div class="monitor-controls">
@@ -2685,7 +2501,7 @@
             <button class="cta-btn primary" id="viewPortfolioBtn">
                 <span class="btn-text">VIEW PORTFOLIO</span>
                 <span class="btn-icon">
-                    <span class="material-symbols-outlined">play_circle</span>
+                    <span class="material-symbols-outlined">smartphone</span>
                 </span>
             </button>
             <button class="cta-btn secondary" id="getInTouchBtn">
@@ -2697,30 +2513,30 @@
         </div>
     </section>
 
-    <!-- About Section -->
+     About Section 
     <section id="about" class="about">
         <div class="section-header">
             <div class="section-number">01</div>
-            <h2 class="section-title">ABOUT THE EDITOR</h2>
+            <h2 class="section-title">ABOUT THE DEVELOPER</h2>
             <div class="section-line"></div>
         </div>
         <div class="about-grid">
             <div class="about-text">
                 <div class="text-block">
                     <p class="lead-text">
-                        With over 3 years of experience in video editing, I specialize in creating cinematic and storytelling-focused content across YouTube, documentaries, social media, and corporate projects.
+                        With over 3 years of experience in Android development, I specialize in creating modern, user-friendly mobile applications using Kotlin, Jetpack Compose, and Flutter for cross-platform solutions.
                     </p>
                     <p class="body-text">
-                        What makes me different? I don't just edit videos - I plan the entire post-production journey. While editing, I'm already thinking about what happens after: how the content will be distributed, what impact it should have, and how to maximize engagement. I specialize in both high-profile professional footage and mobile-shot content, and I can guide clients on how to capture better footage even with phone cameras. My passion lies in color grading and storytelling, ensuring every frame serves the narrative purpose.
+                        What makes me different? I don't just write code - I craft experiences. I focus on clean architecture, performance optimization, and intuitive user interfaces. My expertise spans from native Android development with Kotlin and XML Views to modern declarative UI with Jetpack Compose, and cross-platform development with Flutter and Dart. I'm passionate about Material Design principles, state management, and creating apps that users love to interact with.
                     </p>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number">100</div>
-                        <div class="stat-label">PROJECTS COMPLETED</div>
+                        <div class="stat-number">50</div>
+                        <div class="stat-label">APPS DEVELOPED</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">30</div>
+                        <div class="stat-number">25</div>
                         <div class="stat-label">SATISFIED CLIENTS</div>
                     </div>
                     <div class="stat-card">
@@ -2731,156 +2547,132 @@
             </div>
             <div class="about-visual">
                 <div class="portrait-frame">
-                    <img src="/assets/profilepic.jpg" alt="Rashidul Hasan" class="portrait-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" alt="Rashidul Hasan" class="portrait-image">
                     <div class="frame-overlay">
                         <div class="overlay-text">RASHIDUL HASAN</div>
-                        <div class="overlay-subtitle">PROFESSIONAL VIDEO EDITOR</div>
+                        <div class="overlay-subtitle">ANDROID DEVELOPER</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Section -->
+     Work Section 
     <section id="work" class="work">
         <div class="section-header">
             <div class="section-number">02</div>
-            <h2 class="section-title">FEATURED WORK</h2>
+            <h2 class="section-title">FEATURED PROJECTS</h2>
             <div class="section-line"></div>
         </div>
         <div class="work-showcase">
             <div class="showcase-nav">
                 <button class="showcase-btn active" data-category="all">ALL PROJECTS</button>
-                <button class="showcase-btn" data-category="commercial">COMMERCIAL</button>
-                <button class="showcase-btn" data-category="documentary">DOCUMENTARY</button>
-                <button class="showcase-btn" data-category="music">MUSIC VIDEO</button>
-                <button class="showcase-btn" data-category="social">SOCIAL MEDIA</button>
+                <button class="showcase-btn" data-category="native">NATIVE ANDROID</button>
+                <button class="showcase-btn" data-category="flutter">FLUTTER</button>
+                <button class="showcase-btn" data-category="compose">JETPACK COMPOSE</button>
+                <button class="showcase-btn" data-category="ecommerce">E-COMMERCE</button>
             </div>
             <div class="projects-grid">
-                <div class="project-card" data-category="commercial">
+                <div class="project-card" data-category="native">
                     <div class="project-thumbnail">
-                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=338&fit=crop" alt="Commercial Project Thumbnail" class="project-thumbnail-image">
-                        <video muted loop class="project-video" style="display: none;">
-                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
-                        </video>
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=338&fit=crop" alt="E-Commerce App" class="project-thumbnail-image">
                         <div class="project-overlay">
                             <button class="play-btn">
-                                <span class="material-symbols-outlined">play_arrow</span>
+                                <span class="material-symbols-outlined">smartphone</span>
                             </button>
                             <div class="project-info">
-                                <h3 class="project-title">BRAND EVOLUTION</h3>
-                                <p class="project-category">COMMERCIAL</p>
-                                <p class="project-duration">01:45</p>
-                            </div>
-                            <div class="editing-timeline">
-                                <div class="timeline-progress"></div>
+                                <h3 class="project-title">SHOPIFY MOBILE</h3>
+                                <p class="project-category">NATIVE ANDROID</p>
+                                <p class="project-duration">KOTLIN</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-details">
                         <div class="project-meta">
-                            <span class="meta-tag">MOTION GRAPHICS</span>
-                            <span class="meta-tag">COLOR GRADING</span>
-                            <span class="meta-tag">SOUND DESIGN</span>
+                            <span class="meta-tag">KOTLIN</span>
+                            <span class="meta-tag">MVVM</span>
+                            <span class="meta-tag">RETROFIT</span>
                         </div>
                         <p class="project-description">
-                            A dynamic brand campaign showcasing product evolution through seamless transitions and compelling visual storytelling.
+                            A comprehensive e-commerce application built with Kotlin, featuring product catalog, shopping cart, and secure payment integration.
                         </p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="documentary">
+                <div class="project-card" data-category="flutter">
                     <div class="project-thumbnail">
-                        <img src="https://images.unsplash.com/photo-1478720568477-b0ac8b6e5d0a?w=600&h=338&fit=crop" alt="Documentary Project Thumbnail" class="project-thumbnail-image">
-                        <video muted loop class="project-video" style="display: none;">
-                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-                        </video>
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=338&fit=crop" alt="Flutter Chat App" class="project-thumbnail-image">
                         <div class="project-overlay">
                             <button class="play-btn">
-                                <span class="material-symbols-outlined">play_arrow</span>
+                                <span class="material-symbols-outlined">chat</span>
                             </button>
                             <div class="project-info">
-                                <h3 class="project-title">HUMAN STORIES</h3>
-                                <p class="project-category">DOCUMENTARY</p>
-                                <p class="project-duration">12:30</p>
-                            </div>
-                            <div class="editing-timeline">
-                                <div class="timeline-progress"></div>
+                                <h3 class="project-title">CHAT CONNECT</h3>
+                                <p class="project-category">FLUTTER</p>
+                                <p class="project-duration">DART</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-details">
                         <div class="project-meta">
-                            <span class="meta-tag">DOCUMENTARY</span>
-                            <span class="meta-tag">INTERVIEW</span>
-                            <span class="meta-tag">NARRATIVE</span>
+                            <span class="meta-tag">FLUTTER</span>
+                            <span class="meta-tag">FIREBASE</span>
+                            <span class="meta-tag">REAL-TIME</span>
                         </div>
                         <p class="project-description">
-                            An intimate exploration of human resilience, carefully crafted through thoughtful pacing and emotional depth.
+                            Cross-platform messaging app built with Flutter and Dart, featuring real-time chat, media sharing, and push notifications.
                         </p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="music">
+                <div class="project-card" data-category="compose">
                     <div class="project-thumbnail">
-                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=338&fit=crop" alt="Music Video Project Thumbnail" class="project-thumbnail-image">
-                        <video muted loop class="project-video" style="display: none;">
-                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
-                        </video>
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=338&fit=crop" alt="Compose Weather App" class="project-thumbnail-image">
                         <div class="project-overlay">
                             <button class="play-btn">
-                                <span class="material-symbols-outlined">play_arrow</span>
+                                <span class="material-symbols-outlined">wb_sunny</span>
                             </button>
                             <div class="project-info">
-                                <h3 class="project-title">RHYTHM & LIGHT</h3>
-                                <p class="project-category">MUSIC VIDEO</p>
-                                <p class="project-duration">03:22</p>
-                            </div>
-                            <div class="editing-timeline">
-                                <div class="timeline-progress"></div>
+                                <h3 class="project-title">WEATHER COMPOSE</h3>
+                                <p class="project-category">JETPACK COMPOSE</p>
+                                <p class="project-duration">KOTLIN</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-details">
                         <div class="project-meta">
-                            <span class="meta-tag">MUSIC VIDEO</span>
-                            <span class="meta-tag">VFX</span>
-                            <span class="meta-tag">CREATIVE EDITING</span>
+                            <span class="meta-tag">COMPOSE</span>
+                            <span class="meta-tag">MATERIAL 3</span>
+                            <span class="meta-tag">API</span>
                         </div>
                         <p class="project-description">
-                            A vibrant music video featuring rhythm-based editing, creative transitions, and stunning visual effects.
+                            Modern weather application built entirely with Jetpack Compose, featuring beautiful animations and Material Design 3.
                         </p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="social">
+                <div class="project-card" data-category="ecommerce">
                     <div class="project-thumbnail">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=338&fit=crop" alt="Social Media Project Thumbnail" class="project-thumbnail-image">
-                        <video muted loop class="project-video" style="display: none;">
-                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4">
-                        </video>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=338&fit=crop" alt="Food Delivery App" class="project-thumbnail-image">
                         <div class="project-overlay">
                             <button class="play-btn">
-                                <span class="material-symbols-outlined">play_arrow</span>
+                                <span class="material-symbols-outlined">restaurant</span>
                             </button>
                             <div class="project-info">
-                                <h3 class="project-title">VIRAL CONTENT</h3>
-                                <p class="project-category">SOCIAL MEDIA</p>
-                                <p class="project-duration">00:30</p>
-                            </div>
-                            <div class="editing-timeline">
-                                <div class="timeline-progress"></div>
+                                <h3 class="project-title">FOOD DELIVERY</h3>
+                                <p class="project-category">E-COMMERCE</p>
+                                <p class="project-duration">FLUTTER</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-details">
                         <div class="project-meta">
-                            <span class="meta-tag">SOCIAL MEDIA</span>
-                            <span class="meta-tag">QUICK CUTS</span>
-                            <span class="meta-tag">TRENDY</span>
+                            <span class="meta-tag">FLUTTER</span>
+                            <span class="meta-tag">PAYMENT</span>
+                            <span class="meta-tag">GPS</span>
                         </div>
                         <p class="project-description">
-                            Fast-paced social media content optimized for engagement with modern graphics and dynamic pacing.
+                            Full-featured food delivery app with restaurant listings, order tracking, payment integration, and real-time location updates.
                         </p>
                     </div>
                 </div>
@@ -2888,7 +2680,7 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+     Skills Section 
     <section class="skills">
         <div class="container">
             <div class="section-header">
@@ -2897,129 +2689,123 @@
                 <div class="section-line"></div>
             </div>
             <div class="skills-grid">
-                <div class="skill-card davinci-card">
+                <div class="skill-card kotlin-card">
                     <div class="skill-icon">
-                        <span class="material-symbols-outlined">video_library</span>
-                        <div class="davinci-timeline">
-                            <div class="timeline-track video-track"></div>
-                            <div class="timeline-track audio-track"></div>
-                            <div class="timeline-playhead"></div>
-                        </div>
+                        <span class="material-symbols-outlined">code</span>
+                        <div class="kotlin-logo">K</div>
                     </div>
-                    <h3 class="skill-title">Video Editing</h3>
-                    <p class="skill-description">Expert in DaVinci Resolve and Adobe Premiere Pro</p>
+                    <h3 class="skill-title">Kotlin Development</h3>
+                    <p class="skill-description">Expert in modern Kotlin programming with coroutines, extensions, and functional programming</p>
                     <div class="skill-percentage">95%</div>
                 </div>
                 
-                <div class="skill-card grading-card">
+                <div class="skill-card compose-card">
                     <div class="skill-icon">
-                        <span class="material-symbols-outlined">palette</span>
-                        <div class="davinci-color-wheels">
-                            <div class="color-wheel primary">
-                                <div class="wheel-center"></div>
-                                <div class="wheel-indicator"></div>
-                            </div>
-                            <div class="color-wheel secondary">
-                                <div class="wheel-center"></div>
-                                <div class="wheel-indicator"></div>
-                            </div>
+                        <span class="material-symbols-outlined">widgets</span>
+                        <div class="compose-blocks">
+                            <div class="compose-block"></div>
+                            <div class="compose-block"></div>
+                            <div class="compose-block"></div>
                         </div>
                     </div>
-                    <h3 class="skill-title">Color Grading</h3>
-                    <p class="skill-description">Cinematic color grading and professional color correction</p>
+                    <h3 class="skill-title">Jetpack Compose</h3>
+                    <p class="skill-description">Building modern declarative UIs with Compose and Material Design 3</p>
                     <div class="skill-percentage">90%</div>
                 </div>
                 
-                <div class="skill-card storytelling-card">
+                <div class="skill-card flutter-card">
                     <div class="skill-icon">
-                        <span class="material-symbols-outlined">auto_stories</span>
-                        <div class="story-arc">
-                            <div class="story-point setup"></div>
-                            <div class="story-point conflict"></div>
-                            <div class="story-point resolution"></div>
-                            <div class="story-line"></div>
+                        <span class="material-symbols-outlined">flutter_dash</span>
+                        <div class="flutter-wings">
+                            <div class="wing left"></div>
+                            <div class="wing right"></div>
                         </div>
                     </div>
-                    <h3 class="skill-title">Storytelling</h3>
-                    <p class="skill-description">Crafting compelling narratives through cinematic editing</p>
-                    <div class="skill-percentage">92%</div>
+                    <h3 class="skill-title">Flutter & Dart</h3>
+                    <p class="skill-description">Cross-platform development with Flutter framework and Dart language</p>
+                    <div class="skill-percentage">88%</div>
                 </div>
                 
-                <div class="skill-card audio-card">
+                <div class="skill-card android-card">
                     <div class="skill-icon">
-                        <span class="material-symbols-outlined">graphic_eq</span>
-                        <div class="davinci-mixer">
-                            <div class="mixer-channel">
-                                <div class="channel-fader"></div>
-                                <div class="channel-meter"></div>
-                            </div>
-                            <div class="mixer-channel">
-                                <div class="channel-fader"></div>
-                                <div class="channel-meter"></div>
-                            </div>
-                            <div class="mixer-channel">
-                                <div class="channel-fader"></div>
-                                <div class="channel-meter"></div>
-                            </div>
-                        </div>
+                        <span class="material-symbols-outlined">android</span>
+                        <div class="android-robot"></div>
                     </div>
-                    <h3 class="skill-title">Audio Design</h3>
-                    <p class="skill-description">Professional audio mixing and sound design</p>
-                    <div class="skill-percentage">88%</div>
+                    <h3 class="skill-title">Android Views (XML)</h3>
+                    <p class="skill-description">Traditional Android UI development with XML layouts and View system</p>
+                    <div class="skill-percentage">92%</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Works With Section -->
+     Works With Section 
     <section class="works-with">
         <div class="container">
             <div class="section-header">
                 <div class="section-number">04</div>
-                <h2 class="section-title">WORKS WITH</h2>
+                <h2 class="section-title">DEVELOPMENT TOOLS</h2>
                 <div class="section-line"></div>
             </div>
             <div class="software-grid">
                 <div class="software-card primary-software">
                     <div class="software-icon">
-                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=60&h=60&fit=crop" alt="DaVinci Resolve" class="software-logo">
+                        <span class="material-symbols-outlined">code</span>
                     </div>
-                    <h3 class="software-title">DaVinci Resolve</h3>
-                    <p class="software-description">Primary editing and color grading powerhouse</p>
+                    <h3 class="software-title">Android Studio</h3>
+                    <p class="software-description">Primary IDE for Android development and debugging</p>
                     <div class="software-badge">PRIMARY</div>
                 </div>
                 
                 <div class="software-card primary-software">
                     <div class="software-icon">
-                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=60&h=60&fit=crop" alt="Premiere Pro" class="software-logo">
+                        <span class="material-symbols-outlined">flutter_dash</span>
                     </div>
-                    <h3 class="software-title">Adobe Premiere Pro</h3>
-                    <p class="software-description">Professional video editing and workflow</p>
+                    <h3 class="software-title">Flutter SDK</h3>
+                    <p class="software-description">Cross-platform mobile development framework</p>
                     <div class="software-badge">PRIMARY</div>
                 </div>
                 
                 <div class="software-card">
                     <div class="software-icon">
-                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=60&h=60&fit=crop" alt="After Effects" class="software-logo">
+                        <span class="material-symbols-outlined">storage</span>
                     </div>
-                    <h3 class="software-title">Adobe After Effects</h3>
-                    <p class="software-description">Motion graphics and visual effects</p>
-                    <div class="software-badge">MOTION</div>
+                    <h3 class="software-title">Firebase</h3>
+                    <p class="software-description">Backend services and real-time database</p>
+                    <div class="software-badge">BACKEND</div>
                 </div>
                 
                 <div class="software-card">
                     <div class="software-icon">
-                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=60&h=60&fit=crop" alt="Adobe Audition" class="software-logo">
+                        <span class="material-symbols-outlined">git_branch</span>
                     </div>
-                    <h3 class="software-title">Adobe Audition</h3>
-                    <p class="software-description">Professional audio editing and mixing</p>
-                    <div class="software-badge">AUDIO</div>
+                    <h3 class="software-title">Git & GitHub</h3>
+                    <p class="software-description">Version control and collaborative development</p>
+                    <div class="software-badge">VERSION</div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-icon">
+                        <span class="material-symbols-outlined">design_services</span>
+                    </div>
+                    <h3 class="software-title">Figma</h3>
+                    <p class="software-description">UI/UX design and prototyping tool</p>
+                    <div class="software-badge">DESIGN</div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-icon">
+                        <span class="material-symbols-outlined">api</span>
+                    </div>
+                    <h3 class="software-title">REST APIs</h3>
+                    <p class="software-description">API integration and network programming</p>
+                    <div class="software-badge">API</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Find on Marketplaces Section -->
+     Find on Marketplaces Section 
     <section class="marketplaces">
         <div class="container">
             <div class="section-header">
@@ -3034,8 +2820,8 @@
                         <span class="marketplace-name">FIVERR</span>
                     </div>
                     <div class="marketplace-info">
-                        <h3 class="marketplace-title">Professional Video Editing</h3>
-                        <p class="marketplace-description">Cinematic editing services for all your video needs</p>
+                        <h3 class="marketplace-title">Android App Development</h3>
+                        <p class="marketplace-description">Custom Android apps with Kotlin and modern architecture</p>
                         <div class="marketplace-rating">
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">Coming Soon</span>
@@ -3049,8 +2835,8 @@
                         <span class="marketplace-name">UPWORK</span>
                     </div>
                     <div class="marketplace-info">
-                        <h3 class="marketplace-title">Video Editor & Storyteller</h3>
-                        <p class="marketplace-description">Bringing your stories to life through expert editing</p>
+                        <h3 class="marketplace-title">Mobile App Developer</h3>
+                        <p class="marketplace-description">Flutter and Android development specialist</p>
                         <div class="marketplace-rating">
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">Coming Soon</span>
@@ -3064,8 +2850,8 @@
                         <span class="marketplace-name">FREELANCER</span>
                     </div>
                     <div class="marketplace-info">
-                        <h3 class="marketplace-title">Creative Video Solutions</h3>
-                        <p class="marketplace-description">High-quality video editing for every project</p>
+                        <h3 class="marketplace-title">Kotlin & Flutter Expert</h3>
+                        <p class="marketplace-description">High-quality mobile apps for every platform</p>
                         <div class="marketplace-rating">
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">Coming Soon</span>
@@ -3079,8 +2865,8 @@
                         <span class="marketplace-name">GURU</span>
                     </div>
                     <div class="marketplace-info">
-                        <h3 class="marketplace-title">Video Production Expert</h3>
-                        <p class="marketplace-description">Professional video services with creative flair</p>
+                        <h3 class="marketplace-title">Mobile Development Pro</h3>
+                        <p class="marketplace-description">Professional Android and cross-platform solutions</p>
                         <div class="marketplace-rating">
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">Coming Soon</span>
@@ -3091,7 +2877,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+     Contact Section 
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
@@ -3102,9 +2888,9 @@
             <div class="contact-layout">
                 <div class="contact-info">
                     <div class="info-block">
-                        <h3 class="info-title">LET'S CREATE SOMETHING EXTRAORDINARY</h3>
+                        <h3 class="info-title">LET'S BUILD SOMETHING AMAZING</h3>
                         <p class="info-text">
-                            Ready to bring your vision to life? Whether it's a commercial, documentary, social media content, or creative project, I'm here to help you tell your story with professional video editing.
+                            Ready to bring your mobile app idea to life? Whether it's a native Android app with Kotlin, a cross-platform solution with Flutter, or a modern UI with Jetpack Compose, I'm here to help you create exceptional mobile experiences.
                         </p>
                     </div>
                     <div class="contact-details">
@@ -3151,7 +2937,7 @@
                         </div>
                         <div class="form-field">
                             <input type="text" id="project" required>
-                            <label for="project">PROJECT TYPE</label>
+                            <label for="project">APP TYPE (Android/Flutter/Both)</label>
                         </div>
                         <div class="form-field">
                             <textarea id="message" required></textarea>
@@ -3167,13 +2953,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
+     Footer 
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand-section">
                 <div class="footer-brand">
                     RASHIDUL HASAN
-                    <div class="footer-subtitle">PROFESSIONAL VIDEO EDITOR</div>
+                    <div class="footer-subtitle">ANDROID DEVELOPER</div>
                 </div>
             </div>
             <div class="footer-nav">
@@ -3190,7 +2976,7 @@
         </div>
     </footer>
 
-    <!-- Film Strip Footer -->
+     Film Strip Footer 
     <div class="film-strip-bottom">
         <div class="film-holes">
             <div class="hole"></div>
@@ -3207,29 +2993,23 @@
     <script>
         // Global variables
         let isMuted = true;
-        let allVideos = [];
         let currentPlayingIndex = 0;
         let sequentialPlayInterval;
         let isUserInteracting = false;
         let workSectionInView = false;
-        let heroVideoPlaying = true;
         let userPausedHero = false;
 
         // Initialize when DOM is loaded
         document.addEventListener("DOMContentLoaded", () => {
-            // Get all videos
-            allVideos = document.querySelectorAll("video");
-
             // Initialize all functionality
             initializeTheme();
             initializeVolumeControl();
             initializeNavigation();
-            initializeHeroVideo();
             initializeProjectFilters();
-            initializeProjectVideos();
             initializeButtonActions();
             initializeFormHandling();
             initializeObservers();
+            initializeAnimations();
         });
 
         // Theme Toggle Functionality
@@ -3257,27 +3037,17 @@
             }
         }
 
-        // Volume Control Functionality - Fixed
+        // Volume Control Functionality
         function initializeVolumeControl() {
             const volumeToggle = document.getElementById('volumeToggle');
             const volumeIcon = volumeToggle.querySelector('.material-symbols-outlined');
 
-            // Set initial muted state for all videos
-            allVideos.forEach((video) => {
-                video.muted = true;
-            });
-            
             // Update icon and visual state
             volumeIcon.textContent = 'volume_off';
             volumeToggle.style.opacity = '0.6';
 
             volumeToggle.addEventListener('click', () => {
                 isMuted = !isMuted;
-
-                // Toggle mute for all videos
-                allVideos.forEach((video) => {
-                    video.muted = isMuted;
-                });
 
                 // Update icon and visual state
                 volumeIcon.textContent = isMuted ? 'volume_off' : 'volume_up';
@@ -3324,60 +3094,7 @@
             window.addEventListener('scroll', updateActiveMarker);
         }
 
-        // Hero Video Functionality - Fixed
-        function initializeHeroVideo() {
-            const heroVideo = document.getElementById('heroVideo');
-            const heroPlayBtn = document.getElementById('heroPlayBtn');
-            const heroSection = document.getElementById('home');
-
-            if (!heroVideo || !heroPlayBtn || !heroSection) return;
-
-            // Ensure video is muted by default
-            heroVideo.muted = true;
-
-            // Hero video play/pause button
-            heroPlayBtn.addEventListener('click', () => {
-                if (heroVideoPlaying) {
-                    heroVideo.pause();
-                    heroPlayBtn.querySelector('span').textContent = 'play_arrow';
-                    heroVideoPlaying = false;
-                    userPausedHero = true;
-                } else {
-                    heroVideo.play().catch(e => console.log('Hero video play failed:', e));
-                    heroPlayBtn.querySelector('span').textContent = 'pause';
-                    heroVideoPlaying = true;
-                    userPausedHero = false;
-                }
-            });
-
-            // Auto-pause hero video when scrolled out of view
-            const heroObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Hero section is in view - auto-play if not manually paused
-                        if (!userPausedHero) {
-                            heroVideo.play().catch(e => console.log('Autoplay prevented:', e));
-                            heroPlayBtn.querySelector('span').textContent = 'pause';
-                            heroVideoPlaying = true;
-                        }
-                    } else {
-                        // Hero section is out of view - pause video
-                        heroVideo.pause();
-                        if (!userPausedHero) {
-                            heroPlayBtn.querySelector('span').textContent = 'play_arrow';
-                            heroVideoPlaying = false;
-                        }
-                    }
-                });
-            }, {
-                threshold: 0.3,
-                rootMargin: '0px 0px -100px 0px'
-            });
-
-            heroObserver.observe(heroSection);
-        }
-
-        // Project Filter Functionality - Fixed
+        // Project Filter Functionality
         function initializeProjectFilters() {
             const showcaseBtns = document.querySelectorAll('.showcase-btn');
             const projectCards = document.querySelectorAll('.project-card');
@@ -3401,162 +3118,8 @@
                             card.style.display = 'none';
                         }
                     });
-
-                    // Reset sequential playback after filtering
-                    stopSequentialPlayback();
-                    currentPlayingIndex = 0;
-                    if (workSectionInView && !isUserInteracting) {
-                        setTimeout(() => {
-                            startSequentialPlayback();
-                        }, 500);
-                    }
                 });
             });
-        }
-
-        // Enhanced Project Video Functionality with Sequential Playback - Fixed
-        function initializeProjectVideos() {
-            const workSection = document.getElementById('work');
-            const projectCards = document.querySelectorAll('.project-card');
-
-            // Intersection Observer for work section
-            const workObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    workSectionInView = entry.isIntersecting;
-                    if (entry.isIntersecting && !isUserInteracting) {
-                        startSequentialPlayback();
-                    } else {
-                        stopSequentialPlayback();
-                    }
-                });
-            }, {
-                threshold: 0.3,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            if (workSection) {
-                workObserver.observe(workSection);
-            }
-
-            // Individual project card interactions
-            projectCards.forEach((card, cardIndex) => {
-                const thumbnail = card.querySelector('.project-thumbnail-image');
-                const video = card.querySelector('.project-video');
-                const playBtn = card.querySelector('.play-btn');
-
-                // Hover to play video (stops sequential playback)
-                card.addEventListener('mouseenter', () => {
-                    isUserInteracting = true;
-                    stopSequentialPlayback();
-                    
-                    if (thumbnail && video) {
-                        thumbnail.style.display = 'none';
-                        video.style.display = 'block';
-                        video.muted = isMuted; // Respect global mute setting
-                        video.play().catch(e => console.log('Video play failed:', e));
-                    }
-                });
-
-                // Leave to show thumbnail (resumes sequential playback after delay)
-                card.addEventListener('mouseleave', () => {
-                    if (thumbnail && video) {
-                        video.pause();
-                        video.currentTime = 0;
-                        video.style.display = 'none';
-                        thumbnail.style.display = 'block';
-                    }
-
-                    // Resume sequential playback after a short delay
-                    setTimeout(() => {
-                        isUserInteracting = false;
-                        if (workSectionInView) {
-                            startSequentialPlayback();
-                        }
-                    }, 1000);
-                });
-
-                // Play button click
-                if (playBtn) {
-                    playBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        isUserInteracting = true;
-                        stopSequentialPlayback();
-                        
-                        if (video) {
-                            if (video.paused) {
-                                video.muted = isMuted; // Respect global mute setting
-                                video.play().catch(e => console.log('Video play failed:', e));
-                                playBtn.querySelector('span').textContent = 'pause';
-                            } else {
-                                video.pause();
-                                playBtn.querySelector('span').textContent = 'play_arrow';
-                            }
-                        }
-                    });
-                }
-
-                // Reset interaction state when video ends
-                if (video) {
-                    video.addEventListener('ended', () => {
-                        setTimeout(() => {
-                            isUserInteracting = false;
-                            if (workSectionInView) {
-                                startSequentialPlayback();
-                            }
-                        }, 500);
-                    });
-                }
-            });
-        }
-
-        // Sequential playback functions
-        function startSequentialPlayback() {
-            if (sequentialPlayInterval) return; // Already running
-            
-            const visibleCards = Array.from(document.querySelectorAll('.project-card')).filter(card => 
-                !card.classList.contains('hidden') && card.style.display !== 'none'
-            );
-            
-            if (visibleCards.length === 0) return;
-
-            sequentialPlayInterval = setInterval(() => {
-                if (isUserInteracting || !workSectionInView) return;
-
-                // Stop current video
-                visibleCards.forEach((card, index) => {
-                    const thumbnail = card.querySelector('.project-thumbnail-image');
-                    const video = card.querySelector('.project-video');
-                    if (video && thumbnail) {
-                        video.pause();
-                        video.currentTime = 0;
-                        video.style.display = 'none';
-                        thumbnail.style.display = 'block';
-                    }
-                });
-
-                // Play next video
-                const currentCard = visibleCards[currentPlayingIndex];
-                if (currentCard) {
-                    const thumbnail = currentCard.querySelector('.project-thumbnail-image');
-                    const video = currentCard.querySelector('.project-video');
-                    if (video && thumbnail) {
-                        thumbnail.style.display = 'none';
-                        video.style.display = 'block';
-                        video.muted = isMuted; // Respect global mute setting
-                        video.play().catch(e => console.log('Sequential video play failed:', e));
-                    }
-                }
-
-                // Move to next video
-                currentPlayingIndex = (currentPlayingIndex + 1) % visibleCards.length;
-            }, 3000); // Change video every 3 seconds
-        }
-
-        function stopSequentialPlayback() {
-            if (sequentialPlayInterval) {
-                clearInterval(sequentialPlayInterval);
-                sequentialPlayInterval = null;
-            }
         }
 
         // Button Actions
@@ -3607,11 +3170,11 @@
 
                     // Create mailto link with form data
                     const recipientEmail = 'rashidulhasanbiplob1@gmail.com';
-                    const subject = encodeURIComponent(`Video Editing Project: ${project}`);
+                    const subject = encodeURIComponent(`Android Development Project: ${project}`);
                     const body = encodeURIComponent(
                         `Hi Rashidul,\n\n` +
-                        `My name is ${name} and I'm interested in working with you on a video editing project.\n\n` +
-                        `Project Type: ${project}\n\n` +
+                        `My name is ${name} and I'm interested in working with you on an Android development project.\n\n` +
+                        `App Type: ${project}\n\n` +
                         `Project Details:\n${message}\n\n` +
                         `Please get back to me at your earliest convenience.\n\n` +
                         `Best regards,\n${name}\n${email}`
@@ -3669,7 +3232,7 @@
                     if (entry.isIntersecting) {
                         const counter = entry.target;
                         const target = parseInt(counter.textContent);
-                        animateCounter(counter, target, '+');
+                        animateCounter(counter, target, '');
                         counterObserver.unobserve(counter);
                     }
                 });
@@ -3678,6 +3241,25 @@
             document.querySelectorAll('.stat-number').forEach((counter) => {
                 counterObserver.observe(counter);
             });
+        }
+
+        // Initialize Android-specific animations
+        function initializeAnimations() {
+            // Add floating animation to app icon
+            const appIcon = document.querySelector('.app-icon');
+            if (appIcon) {
+                setInterval(() => {
+                    appIcon.style.transform = `translateY(${Math.sin(Date.now() * 0.002) * 5}px)`;
+                }, 16);
+            }
+
+            // Animate Kotlin code reveal
+            const kotlinCode = document.querySelector('.kotlin-code');
+            if (kotlinCode) {
+                setInterval(() => {
+                    kotlinCode.style.opacity = kotlinCode.style.opacity === '1' ? '0' : '1';
+                }, 4000);
+            }
         }
 
         // Counter Animation Function
@@ -3728,3 +3310,4 @@
     </script>
 </body>
 </html>
+
